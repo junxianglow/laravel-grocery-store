@@ -43,24 +43,24 @@ return [
 
         'api' => [
             'dirver' => 'token',
-            'provider' => 'users'
+            'provider' => 'users',
             'hash' => false,
-        ]
+        ],
 
         'user' => [
             'dirver' => 'session',
-            'provider' => 'users'
-        ]
+            'provider' => 'users',
+        ],
 
         'catogory' => [
             'dirver' => 'session',
-            'provider' => 'catogories'
-        ]
+            'provider' => 'catogories',
+        ],
 
         'product' => [
             'dirver' => 'session',
-            'provider' => 'products'
-        ]
+            'provider' => 'products',
+        ],
     ],
 
     /*
@@ -94,12 +94,12 @@ return [
         'catogories' => [
             'driver' => 'eloquent',
             'model' => App\Models\Catogory::class,
-        ]
+        ],
 
         'products' => [
             'driver' => 'eloquent',
             'model' => App\Models\Products::class,
-        ]
+        ],
     ],
 
     /*
