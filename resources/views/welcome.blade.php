@@ -10,48 +10,13 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
-            </div>
-
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" required>
-            </div>
-
-            <div>
-                <button type="submit">Login</button>
-            </div>
-        </form>
-
+        <!-- Use Laravel's built-in authentication views and routes -->
+        <div>
+            <a href="{{ route('login') }}">Login</a>
+        </div>
         <br>
-
-        <form method="POST" action="{{ route('users.create') }}">
-
-            @csrf
-
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" required>
-            </div>
-
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
-            </div>
-
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" required>
-            </div>
-
-            <div>
-                <button type="submit">Register</button>
-            </div>
-        </form>
+        <div>
+            <a href="{{ route('register') }}">Register</a>
+        </div>
     </body>
 </html>
