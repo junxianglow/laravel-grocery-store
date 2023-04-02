@@ -22,7 +22,7 @@
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->price }}</td>
-                    <td>{{ $product->category->name }}</td>
+                    <td>{{ optional($product->category)->name }}</td>
                     <td>
                         <a href="{{ route('products.edit', $product->id) }}">Edit</a>
                         <form action="{{ route('products.destroy', $product->id) }}" method="POST">
