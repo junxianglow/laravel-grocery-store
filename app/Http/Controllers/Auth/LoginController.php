@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -26,12 +27,38 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo;
+    protected $redirectTo = '/home';
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
-        $this->redirectTo = route('dashboard');
         $this->middleware('guest')->except('logout');
+        $this->middleware('guest:user')->except('logout');
     }
-    
+
+    public function showUserLogin()
+    {
+        return view('auth.login', ['url' => 'user']);
+    }
+
+    public function userLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|string|email',
+            'password' => 'required|string|min:8',
+        ]);
+
+        if (Auth::guard('user')->attempt(['email' => $request->email,
+        'password' => $request->password], $request->get('remember')))
+        {
+            return redirect()->intend('/user');
+        }
+        return back()->withInput($request->only('email', 'remember'));
+    }
+
+
 }

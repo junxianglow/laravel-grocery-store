@@ -40,6 +40,27 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api' => [
+            'dirver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+
+        'user' => [
+            'dirver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'catogory' => [
+            'dirver' => 'session',
+            'provider' => 'catogories',
+        ],
+
+        'product' => [
+            'dirver' => 'session',
+            'provider' => 'products',
+        ],
     ],
 
     /*
@@ -69,6 +90,16 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'catogories' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Catogory::class,
+        ],
+
+        'products' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Products::class,
+        ],
     ],
 
     /*
